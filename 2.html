@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<style type="text/css">
+ 
+.selected {
+    background-color: yellowgreen;
+}
+ 
+table {
+    background-color: beige;
+    border-collapse: collapse;
+}
+ 
+td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 6px;
+}
+ 
+</style>
+
+	<script>
+
+
+
+		function get_rand(min,max){
+			var r = min - 0.5 + Math.random()*(max-min+1);
+			return Math.round(r);
+		}
+		function do_it(){
+				var array_word = ['строить','гладить','стелить','муха','одежда', 'тетрадь'];
+			var sssr = '<table id="Table">';
+			for (var i=1; i < 11; i++){
+				sssr = sssr + '<tr>';
+				for (var j=1; j < 11; j++){
+					sssr = sssr + '<td>'+array_word[get_rand(0,array_word.length-1)]+'</td>';
+				}
+				sssr = sssr + '</tr>';
+			}
+			sssr = sssr + '</table>';
+			document.getElementById('pole').innerHTML = sssr;
+		}
+		
+		function show(){
+			var table = document.getElementById('Table');
+			for (var i=0; i<table.rows.length; i++) {
+				for (var j=0; j<table.rows[0].cells.length; j++) {
+					var TD=table.rows[i].cells[j];
+					var s = TD.innerHTML;
+					var len = s.length;
+					if ((s[len-3] == 'и') && (s[len-2] == 'т') && (s[len-1] == 'ь')) {
+						TD.style.backgroundColor = "green";
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<input type="button" id="push" value="Нарисовать таблицу" onClick="do_it()"  >
+	<input type="button" id="push" value="Найти слова" onClick="show()"  >
+	<div id="pole">
+		
+	</div>
+</body>
+</html>
