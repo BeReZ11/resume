@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>canvas</title>
+  <meta charset="utf-8">
+
+  <canvas id="smile" width="6000" height="6000">
+    <p>Ваш браузер не поддерживает рисование.</p>
+  </canvas>
+
+<script type="text/javascript">
+    var myCanvas = document.getElementById('smile');
+
+     var cxt = myCanvas.getContext('2d');
+	    
+	 
+     
+
+	 
+    
+
+  
+
+   
+  // Рисуем овал как сжатый круг
+ cxt.beginPath();
+      cxt.scale(3, 1); // сжимаем по вертикали в 2 раза
+
+   
+
+      var centerX = 60;
+      var centerY = 130;
+      var radius = 30;
+      cxt.arc(centerX, centerY, radius, 0,2 * Math.PI, false);
+cxt.closePath();	   
+
+  cxt.restore();
+
+	   // красим
+      cxt.fillStyle = '#006600';
+      cxt.fill();
+
+
+cxt.beginPath();
+	   cxt.scale(1/1.4,1); // сжимаем по вертикали в 2 раза 
+
+
+      var centerX = 84;
+      var centerY = 206;
+      var radius = 50;
+      cxt.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+	  cxt.closePath();
+	     cxt.restore();
+	   // красим
+      cxt.fillStyle = '#00CC33';
+      cxt.fill();
+	  cxt.lineWidth = 1;
+      cxt.strokeStyle = 'black';
+      cxt.stroke();
+
+
+	  
+	  
+cxt.beginPath();
+      cxt.scale(3, 1); // сжимаем по вертикали в 2 раза
+
+
+
+      var centerX = 21;
+      var centerY = 255;
+      var radius = 6;
+      cxt.arc(centerX, centerY, radius, 0,2 * Math.PI, false);
+	   
+
+  cxt.restore();
+ cxt.closePath();
+	   // красим
+      cxt.fillStyle = '#006600';
+      cxt.fill();
+
+      
+cxt.beginPath();
+
+      var centerX = 35;
+      var centerY = 255;
+      var radius = 6;
+      cxt.arc(centerX, centerY, radius, 0,2 * Math.PI, false);
+
+
+  cxt.restore();
+	   // красим
+      cxt.fillStyle = '#006600';
+      cxt.fill();
+cxt.closePath();
+	      // Рисуем левый глаз 
+		  cxt.scale(1/5, 1); // сжимаем по вертикали в 2 раза
+     cxt.fillStyle = "yellow";
+cxt.beginPath();
+	 
+	 
+	 
+     cxt.arc(112,100,14,0,Math.PI*2,true);
+cxt.closePath();
+     cxt.stroke();
+     cxt.fill();
+     // Рисуем правый глаз 
+     cxt.fillStyle="yellow";
+cxt.beginPath();
+     cxt.arc(172,100,14,0,Math.PI*2,true);
+cxt.closePath();
+
+     cxt.stroke();
+     cxt.fill();
+
+  </script>
+ </head>
+ <body>
+</html>
